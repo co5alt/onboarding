@@ -1,14 +1,38 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+<ion-content>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-slides pager (ionSlideDidChange)="slideChanged()" (ionSlideDrag)="slideMoved()">
+
+<ion-slide>
+      <div class="diag" style="background: url('assets/img/whitebg.svg') no-repeat">
+        <ion-icon ios="ios-globe" md="md-globe" color="primary" [@bounce]='state' (@bounce.done)="animationDone($event)"></ion-icon>
+      </div>
+      <div [@bounce]='state'>
+        <h2>change your location</h2>
+        <p>get the weather anywhere you are.</p>
+      </div>
+    </ion-slide>
+
+    <ion-slide>
+      <div class="diag" style="background: url('assets/img/whitebg.svg') no-repeat">
+         <ion-icon ios="ios-partly-sunny" md="md-ios-partly-sunny" color="primary" [@bounce]='state' (@bounce.done)="animationDone($event)"></ion-icon>
+      </div>
+      <div [@bounce]='state'>
+        <h2>weather icons</h2>
+        <p>large icons let you check the weather with just a glance</p>
+      </div>
+    </ion-slide>
+
+    <ion-slide>
+      <div class="diag" style="background: url('assets/img/whitebg.svg') no-repeat">
+        <ion-icon ios="ios-thermometer" md="md-thermometer" color="primary" [@bounce]='state' (@bounce.done)="animationDone($event)"></ion-icon>
+      </div>
+      <div [@bounce]='state'>
+        <h2>detailed weather</h2>
+        <p>get the temperature, humidity, dewpoint, and visibility</p>
+      </div>
+    </ion-slide>
+
+  
+    </ion-slides>
+    <button (click)="skip()" id="skip">{{ skipMsg }}</button>
 </ion-content>
